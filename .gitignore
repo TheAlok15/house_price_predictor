@@ -1,3 +1,4 @@
-hello.py
-house_prices.csv
 requirements.txt
+data.py
+data.zip
+__pycache__

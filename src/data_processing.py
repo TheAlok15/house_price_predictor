@@ -6,15 +6,21 @@ def load_data(data_path):
     return df
 
 def preprocess_data(df):
-    df = pd.get_dummies(df, columns=['location'], prefix='location', drop_first=True) #for hot encoding
-    # Separate features (X) and target (y)
+    df = pd.get_dummies(
+        df, 
+        columns=['location'], prefix='location', drop_first=True
+    )
     X = df.drop('price', axis=1)
     y = df['price']
     return X, y
 
 def split_data(X, y, test_size=0.2, random_state=42):
-    """Splits the features and target into training and testing sets."""
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=test_size, random_state=random_state)
+
+    X_train, X_test, y_train, y_test = train_test_split(
+        X,
+        y,
+        test_size=test_size, random_state=random_state
+    )
     return X_train, X_test, y_train, y_test
 
 if __name__ == '__main__':
